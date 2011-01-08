@@ -8,7 +8,7 @@ module Rpncalc
           Stack.should_receive(:new).with(2)
           Calculator.new
         end
-        it 'sets default separator' do
+        it 'sets default delimiter' do
           Parser.should_receive(:new).with(' ')
           Calculator.new
         end
@@ -17,9 +17,9 @@ module Rpncalc
         Stack.should_receive(:new).with(3)
         Calculator.new :arity => 3
       end
-      it 'accepts a custom separator' do
+      it 'accepts a custom delimiter' do
         Parser.should_receive(:new).with(',')
-        Calculator.new :separator => ','
+        Calculator.new :delimiter => ','
       end
       it 'creates an accessible stack' do
         calculator = Calculator.new
