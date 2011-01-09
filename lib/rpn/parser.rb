@@ -13,7 +13,7 @@ module RPN
     end
 
     def parse string
-      string.gsub(/#{delimiter}+/, delimiter)
+      string.gsub(/#{delimiter}+/, delimiter)\
             .split(delimiter).map(&:strip).map do |element|
         if element.to_i.zero? && element != '0'
           if TOKENS.include?(element)
@@ -22,7 +22,7 @@ module RPN
             raise MalformedStringError.new("Offending token: #{element}")
           end
         else
-          element =~ /\./ ? element.to_f
+          element =~ /\./ ? element.to_f\
                           : element.to_i
         end
       end

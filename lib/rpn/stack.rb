@@ -17,14 +17,15 @@ module RPN
           push token
           next
         end
-        raise InsufficientValuesAvailable
+        raise InsufficientValuesAvailable\
               .new("Cannot apply #{token} to less than #{arity} values!") if size < arity
         result = pop(arity).inject do |acc, e|
           acc.send(token, e)
         end
         push result
       end
-      raise UnsolvableExpressionError.new("The final stack contained more than one value: #{elements.inspect}") if size > 1
+      raise UnsolvableExpressionError\
+            .new("The final stack contained more than one value: #{elements.inspect}") if size > 1
       elements.first
     end
 
