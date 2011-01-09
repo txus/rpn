@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rpncalc (0.0.1)
+    rpn (0.0.1)
 
 GEM
   remote: http://rubygems.org/
@@ -36,5 +36,5 @@ DEPENDENCIES
   bundler (~> 1.0.7)
   guard
   guard-rspec
-  rpncalc!
+  rpn!
   rspec (~> 2.4.0)
