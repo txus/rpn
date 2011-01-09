@@ -1,1 +1,1 @@
-rvm --create use ruby-1.9.2@rpncalc
+rvm --create use ruby-1.9.2@rpn
