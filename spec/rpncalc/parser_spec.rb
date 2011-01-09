@@ -8,7 +8,7 @@ module Rpncalc
         parser.delimiter.should == ' '
       end
       describe "makes the parser raise an InvalidDelimiterError" do
-        %w{. + - * / ^ ln log10 19 425 0}.each do |invalid_delimiter|
+        %w{. + - * / ^ 19 425 0}.each do |invalid_delimiter|
           it "when using #{invalid_delimiter} as a delimiter" do
             expect {
               Parser.new invalid_delimiter
@@ -24,7 +24,7 @@ module Rpncalc
 
         it 'returns a tokenized array' do
           subject.parse("1 4 5 + -").should == [1, 4, 5, :+, :-]
-          subject.parse("1 2 3 4 5 6 7 8 + - * / ^ ln log10").should == [1, 2, 3, 4, 5, 6, 7, 8, :+, :-, :*, :/, :^, :ln, :log10]
+          subject.parse("1 2 3 4 5 6 7 8 + - * / ^").should == [1, 2, 3, 4, 5, 6, 7, 8, :+, :-, :*, :/, :^]
         end
         describe "edge cases" do
           it 'strips any extra spaces' do
@@ -37,7 +37,7 @@ module Rpncalc
 
         it 'returns a tokenized array' do
           subject.parse("1,4,5.3,+,-").should == [1, 4, 5.3, :+, :-]
-          subject.parse("1,2,3,4,5,6,7,8,+,-,*,/,^,ln,log10").should == [1,2,3,4,5,6,7,8,:+,:-,:*,:/,:^,:ln,:log10]
+          subject.parse("1,2,3,4,5,6,7,8,+,-,*,/,^").should == [1,2,3,4,5,6,7,8,:+,:-,:*,:/,:^]
         end
         describe "edge cases" do
           it 'strips any extra spaces and delimiter' do

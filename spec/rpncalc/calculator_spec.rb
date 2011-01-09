@@ -33,13 +33,13 @@ module Rpncalc
 
     describe "#solve" do
       it 'passes the string to the parser' do
-        subject.stack.stub(:handle)
+        subject.stack.stub(:solve)
         subject.parser.should_receive(:parse).with "3 4 +"
         subject.solve "3 4 +"
       end
       it 'delegates solving to the stack' do
         subject.parser.stub(:parse).and_return ["3", "4", "+"]
-        subject.stack.should_receive(:handle).with ["3", "4", "+"]
+        subject.stack.should_receive(:solve).with ["3", "4", "+"]
         subject.solve "3 4 +"
       end
     end

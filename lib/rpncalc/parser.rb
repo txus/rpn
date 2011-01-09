@@ -3,7 +3,7 @@ module Rpncalc
     class MalformedStringError < StandardError; end;
     class InvalidDelimiterError < StandardError; end;
     
-    TOKENS = %w{. + - * / ^ ln log10}
+    TOKENS = %w{. + - * / ^}
 
     attr_reader :delimiter
 

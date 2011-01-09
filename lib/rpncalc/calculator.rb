@@ -8,7 +8,7 @@ module Rpncalc
       @parser = Parser.new(delimiter)
     end
     def solve string
-      stack.handle parser.parse(string)
+      stack.solve parser.parse(string)
     end
   end
 end
