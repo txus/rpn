@@ -1,6 +1,6 @@
-require 'rpncalc/stack.rb'
-require 'rpncalc/parser.rb'
-require 'rpncalc/calculator.rb'
+require 'rpn/stack.rb'
+require 'rpn/parser.rb'
+require 'rpn/calculator.rb'
 
-module Rpncalc
+module RPN
 end
