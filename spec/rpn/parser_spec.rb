@@ -24,7 +24,7 @@ module RPN
 
         it 'returns a tokenized array' do
           subject.parse("1 4 5 + -").should == [1, 4, 5, :+, :-]
-          subject.parse("1 2 3 4 5 6 7 8 + - * / ^").should == [1, 2, 3, 4, 5, 6, 7, 8, :+, :-, :*, :/, :^]
+          subject.parse("1 2 3 4 5 6 7 8 + - * / ^").should == [1, 2, 3, 4, 5, 6, 7, 8, :+, :-, :*, :/, :**]
         end
         describe "edge cases" do
           it 'strips any extra spaces' do
@@ -37,7 +37,7 @@ module RPN
 
         it 'returns a tokenized array' do
           subject.parse("1,4,5.3,+,-").should == [1, 4, 5.3, :+, :-]
-          subject.parse("1,2,3,4,5,6,7,8,+,-,*,/,^").should == [1,2,3,4,5,6,7,8,:+,:-,:*,:/,:^]
+          subject.parse("1,2,3,4,5,6,7,8,+,-,*,/,^").should == [1,2,3,4,5,6,7,8,:+,:-,:*,:/,:**]
         end
         describe "edge cases" do
           it 'strips any extra spaces and delimiter' do

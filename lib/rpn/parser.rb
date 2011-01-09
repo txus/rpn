@@ -4,6 +4,7 @@ module RPN
     class InvalidDelimiterError < StandardError; end;
     
     TOKENS = %w{. + - * / ^}
+    ALIASES = {'^' => '**'}
 
     attr_reader :delimiter
 
@@ -16,7 +17,7 @@ module RPN
             .split(delimiter).map(&:strip).map do |element|
         if element.to_i.zero? && element != '0'
           if TOKENS.include?(element)
-            element.to_sym
+            (ALIASES[element] || element).to_sym
           else
             raise MalformedStringError.new("Offending token: #{element}")
           end
