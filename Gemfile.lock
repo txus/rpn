@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rpn (0.0.1)
+    rpn (0.0.2)
 
 GEM
   remote: http://rubygems.org/
