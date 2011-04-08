@@ -14,10 +14,8 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "rpn"
 
-  s.add_development_dependency 'bundler', '~> 1.0.7'
-  s.add_development_dependency 'rspec',   '~> 2.4.0'
-  s.add_development_dependency 'guard'
-  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'mocha'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
