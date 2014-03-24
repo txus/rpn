@@ -41,5 +41,11 @@ module RPN
       end
     end
 
+    def test_parser_with_element_zero
+      parser = Parser.new(' ')
+      assert_equal [100, 0.5, :-], parser.parse("100 0.5 -")
+      assert_equal [100, 0.009, :-], parser.parse("100 0.009 -")
+    end
+
   end
 end

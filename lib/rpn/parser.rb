@@ -15,7 +15,7 @@ module RPN
     def parse string
       string.gsub(/#{delimiter}+/, delimiter)\
             .split(delimiter).map(&:strip).map do |element|
-        if element.to_i.zero? && element != '0'
+        if element.to_f.zero? && element != '0'
           if TOKENS.include?(element)
             (ALIASES[element] || element).to_sym
           else
