@@ -46,6 +46,18 @@ module RPN
 
       calculator.solve "3 4 +"
     end
+    
+    def test_solve_round_zero_elements
+      calculator = Calculator.new
+      calculator.parser.stubs(:parse).returns ["3", "0.04", "-"]
+      calculator.stack.expects(:solve).with ["3", "0.04", "-"]
 
+      calculator.solve "3 0.04 -"
+      
+      calculator.parser.stubs(:parse).returns ["3", "0.04", "*"]
+      calculator.stack.expects(:solve).with ["3", "0.04", "*"]
+
+      calculator.solve "3 0.04 *"
+    end
   end
 end
